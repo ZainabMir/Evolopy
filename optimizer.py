@@ -11,7 +11,6 @@ import optimizers.GWO as gwo
 import optimizers.MFO as mfo
 import optimizers.CS as cs
 import optimizers.BAT as bat
-import optimizers.WOABAT as woabat
 import optimizers.WOA as woa
 import optimizers.FFA as ffa
 import optimizers.SSA as ssa
@@ -46,8 +45,6 @@ def selector(algo, func_details, popSize, Iter):
         x = ga.GA(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     elif algo == "BAT":
         x = bat.BAT(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
-    elif algo == "WOABAT":
-        x = woabat.WOABAT(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     elif algo == "FFA":
         x = ffa.FFA(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     elif algo == "GWO":
