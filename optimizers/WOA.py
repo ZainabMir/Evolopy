@@ -36,6 +36,20 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
 
     # Initialize convergence
     convergence_curve = numpy.zeros(Max_iter)
+    
+    #bat algorithm addition
+    Qmin = 0  # Frequency minimum
+    Qmax = 2  # Frequency maximum
+    
+     # Initializing arrays
+    Q = numpy.zeros(SearchAgents_no)  # Frequency
+    v = numpy.zeros((SearchAgents_no,dim))  # Velocities
+    
+    A1 = 0.5
+    # Loudness  (constant or decreasing)
+    r = 0.5
+    # Pulse rate (constant or decreasing)
+
 
     ############################
     s = solution()
@@ -97,12 +111,49 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                             SearchAgents_no * random.random()
                         )
                         X_rand = Positions[rand_leader_index, :]
-                        D_X_rand = abs(C * X_rand[j] - Positions[i, j])
-                        Positions[i, j] = X_rand[j] - A * D_X_rand
+                        Q[i] = Qmin + (Qmin-Qmax) * random.random()
+                        v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
+                        z[i,:] = Positions[i:] + v[i,:]
+                        
+                       
+                        if random.random() > r:
+                        z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
+                        
+                         # Evaluate new solutions
+                        Fnew = objf(z[i, :])
+
+                        # Update if the solution improves
+                        if (Fnew <= fitness[i]) and (random.random() < A1):
+                            Positions[i, :] = numpy.copy(z[i, :])
+                            fitness[i] = Fnew
+                        
+                        
+                       
+                
+                        #D_X_rand = abs(C * X_rand[j] - Positions[i, j])
+                        #Positions[i, j] = X_rand[j] - A * D_X_rand
 
                     elif abs(A) < 1:
-                        D_Leader = abs(C * Leader_pos[j] - Positions[i, j])
-                        Positions[i, j] = Leader_pos[j] - A * D_Leader
+                         Q[i] = Qmin + (Qmin-Qmax) * random.random()
+                        v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
+                        z[i,:] = Positions[i:] + v[i,:]
+                        
+                       
+                        if random.random() > r:
+                        z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
+                        
+                         # Evaluate new solutions
+                        Fnew = objf(z[i, :])
+
+                        # Update if the solution improves
+                        if (Fnew <= fitness[i]) and (random.random() < A1):
+                            Positions[i, :] = numpy.copy(z[i, :])
+                            fitness[i] = Fnew
+                        
+                        
+                        
+                        #D_Leader = abs(C * Leader_pos[j] - Positions[i, j])
+                        #Positions[i, j] = Leader_pos[j] - A * D_Leader
 
                 elif p >= 0.5:
 
