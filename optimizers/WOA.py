@@ -139,6 +139,10 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                         #Positions[i, j] = X_rand[j] - A * D_X_rand
 
                     elif abs(A) < 1:
+                        rand_leader_index = math.floor(
+                            SearchAgents_no * random.random()
+                        )
+                        X_rand = Positions[rand_leader_index, :]
                          Q[i] = Qmin + (Qmin-Qmax) * random.random()
                          v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
                          z[i,:] = Positions[i:] + v[i,:]
