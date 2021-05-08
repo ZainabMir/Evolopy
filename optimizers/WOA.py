@@ -4,6 +4,11 @@ Created on Mon May 16 14:19:49 2016
 
 @author: hossam
 """
+'''import math
+import numpy
+import random
+import time
+from solution import solution'''
 import random
 import numpy
 import math
@@ -111,9 +116,9 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                             SearchAgents_no * random.random()
                         )
                         X_rand = Positions[rand_leader_index, :]
-                        Q[i] = Qmin + (Qmin-Qmax) * random.random()
-                        v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
-                        z[i,:] = Positions[i:] + v[i,:]
+                        Q[i] = Qmin + (Qmin - Qmax) * random.random()
+                        v[i, :] = v[i,j] + ( X_rand[j] - Leader_pos[j] ) * Q[i]
+                        z[i, :] = Positions[i, :] + v[i, :]
                         
                        
                         if random.random() > r:
