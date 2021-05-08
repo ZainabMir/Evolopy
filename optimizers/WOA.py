@@ -144,7 +144,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                          z[i,:] = Positions[i:] + v[i,:]
                         
                        
-                        if random.random() > r:
+                        if random.random() > r :
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
                         
                          # Evaluate new solutions
