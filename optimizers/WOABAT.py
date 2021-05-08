@@ -16,7 +16,7 @@ from solution import solution
 import time
 
 
-def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
+def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
 
     # dim=30
     # SearchAgents_no=50
@@ -63,7 +63,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     ############################
     s = solution()
 
-    print('WOA is optimizing  "' + objf.__name__ + '"')
+    print('WOABAT is optimizing  "' + objf.__name__ + '"')
 
     timerStart = time.time()
     s.startTime = time.strftime("%Y-%m-%d-%H-%M-%S")
@@ -186,7 +186,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     s.endTime = time.strftime("%Y-%m-%d-%H-%M-%S")
     s.executionTime = timerEnd - timerStart
     s.convergence = convergence_curve
-    s.optimizer = "WOA"
+    s.optimizer = "WOABAT"
     s.objfname = objf.__name__
     s.best = Leader_score
     s.bestIndividual = Leader_pos
