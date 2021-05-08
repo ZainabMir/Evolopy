@@ -70,7 +70,7 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     ############################
     
     for i in range(0, SearchAgents_no):
-        Fitness[i] = objf(Positions[i, :])
+        fitness[i] = objf(Positions[i, :])
     
     t = 0  # Loop counter
 
