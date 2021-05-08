@@ -18,7 +18,7 @@ import optimizers.GA as ga
 import optimizers.HHO as hho
 import optimizers.SCA as sca
 import optimizers.JAYA as jaya
-import optimizers.DE as de
+import optimizers.WOABAT as woabat
 import benchmarks
 import csv
 import numpy
@@ -63,8 +63,8 @@ def selector(algo, func_details, popSize, Iter):
         x = sca.SCA(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     elif algo == "JAYA":
         x = jaya.JAYA(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
-    elif algo == "DE":
-        x = de.DE(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
+    elif algo == "WOABAT":
+        x = woabat.WOABAT(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     else:
         return null
     return x
