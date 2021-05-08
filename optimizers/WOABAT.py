@@ -68,7 +68,10 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     timerStart = time.time()
     s.startTime = time.strftime("%Y-%m-%d-%H-%M-%S")
     ############################
-
+    
+    for i in range(0, n):
+        Fitness[i] = objf(Positions[i, :])
+    
     t = 0  # Loop counter
 
     # Main loop
