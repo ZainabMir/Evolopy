@@ -140,8 +140,8 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
 
                     elif abs(A) < 1:
                          Q[i] = Qmin + (Qmin-Qmax) * random.random()
-                        v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
-                        z[i,:] = Positions[i:] + v[i,:]
+                         v[i,:] = v[i,j]+(X_rand(j)-Leader_pos[j])*Q[i]
+                         z[i,:] = Positions[i:] + v[i,:]
                         
                        
                         if random.random() > r:
