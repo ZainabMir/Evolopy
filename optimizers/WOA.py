@@ -55,8 +55,8 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     r = 0.5
     # Pulse rate (constant or decreasing)
     
-    S = numpy.zeros((SearchAgents_no,dim))
-    S = numpy.copy(Positions)
+    z = numpy.zeros((SearchAgents_no,dim))
+    z = numpy.copy(Positions)
     fitness = numpy.zeros(SearchAgents_no)
 
 
