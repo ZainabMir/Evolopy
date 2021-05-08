@@ -48,7 +48,7 @@ def WOABAT(objf, lb, ub, dim, N, Max_iteration):
 
     # initialize solution for the final results
     s = solution()
-    print('BAT is optimizing  "' + objf.__name__ + '"')
+    print('WOABAT is optimizing  "' + objf.__name__ + '"')
 
     # Initialize timer for the experiment
     timerStart = time.time()
