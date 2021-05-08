@@ -134,7 +134,7 @@ import time
 from solution import solution
 
 
-def DE(objf, lb, ub, dim, N, Max_iteration):
+def WOABAT(objf, lb, ub, dim, N, Max_iteration):
 
     n = N
     # Population size
@@ -171,7 +171,7 @@ def DE(objf, lb, ub, dim, N, Max_iteration):
 
     # initialize solution for the final results
     s = solution()
-    print('DE is optimizing  "' + objf.__name__ + '"')
+    print('WOABAT is optimizing  "' + objf.__name__ + '"')
 
     # Initialize timer for the experiment
     timerStart = time.time()
@@ -226,7 +226,7 @@ def DE(objf, lb, ub, dim, N, Max_iteration):
     s.endTime = time.strftime("%Y-%m-%d-%H-%M-%S")
     s.executionTime = timerEnd - timerStart
     s.convergence = Convergence_curve
-    s.optimizer = "DE"
+    s.optimizer = "WOABAT"
     s.objfname = objf.__name__
 
     return s
