@@ -111,7 +111,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
             for j in range(0, dim):
 
                 if p < 0.5:
-                    if abs(A) >= 1:
+                    if abs(A) >= 1 or abs(A) < 1:
                         rand_leader_index = math.floor(
                             SearchAgents_no * random.random()
                         )
@@ -137,7 +137,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                 
                         #D_X_rand = abs(C * X_rand[j] - Positions[i, j])
                         #Positions[i, j] = X_rand[j] - A * D_X_rand
-
+                    '''
                     elif abs(A) < 1:
                         rand_leader_index = math.floor(
                             SearchAgents_no * random.random()
@@ -160,7 +160,7 @@ def WOA(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                         
                         
                         #D_Leader = abs(C * Leader_pos[j] - Positions[i, j])
-                        #Positions[i, j] = Leader_pos[j] - A * D_Leader
+                        #Positions[i, j] = Leader_pos[j] - A * D_Leader'''
 
                 elif p >= 0.5:
 
