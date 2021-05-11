@@ -57,7 +57,7 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
     
     z = numpy.zeros((SearchAgents_no,dim))
     z = numpy.copy(Positions)
-    fitness = numpy.zeros(SearchAgents_no)
+    #fitness = numpy.zeros(SearchAgents_no)
 
 
     ############################
