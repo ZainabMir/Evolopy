@@ -135,9 +135,9 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                             Fnew = objf(z[i, :])
 
                             # Update if the solution improves
-                            if (Fnew <= fitness[i]) and (random.random() < A1):
+                            if (Fnew <= fitness) and (random.random() < A1):
                                 Positions[i, :] = numpy.copy(z[i, :])
-                                fitness[i] = Fnew
+                                fitness = Fnew
                         
                         
                        
