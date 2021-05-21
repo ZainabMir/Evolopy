@@ -132,13 +132,13 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                         if random.random() > r:
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
                            
-                            # Evaluate new solutions
-                            Fnew = objf(z[i, :])
+                        # Evaluate new solutions
+                        Fnew = objf(z[i, :])
                             
-                            # Update if the solution improves
-                            if (Fnew <= fitness) and (random.random() < A1):
-                                Positions[i, :] = numpy.copy(z[i, :])
-                                fitness = Fnew
+                        # Update if the solution improves
+                        if (Fnew <= fitness) and (random.random() < A1):
+                            Positions[i, :] = numpy.copy(z[i, :])
+                            fitness = Fnew
                         
                         
                        
@@ -150,6 +150,7 @@ def WOABAT(objf, lb, ub, dim, SearchAgents_no, Max_iter):
                         Q[i] = Qmin + (Qmin-Qmax) * random.random()
                         v[i,:] = v[i,j]+(Positions[i,:]-Leader_pos[j])*Q[i]
                         z[i,:] = Positions[i,:] + v[i,:]
+                        
                         if random.random() > r:
                             z[i,:] = Leader_pos[j] + 0.001 * numpy.random.randn(dim)
                         
